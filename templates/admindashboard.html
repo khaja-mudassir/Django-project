@@ -1,0 +1,107 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin dashboard</title>
+  <link rel="stylesheet" href="{%static 'style1.css' %}">
+  <script src="https://kit.fontawesome.com/2edfbc5391.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+  <style>
+    .far {
+      color: #a7abde;
+      padding-left: 15px;
+
+    }
+
+    .col-div-3 .box p {
+      font-size: 25px;
+
+    }
+
+    .box .fas {
+      color: #a7abde;
+      position: absolute;
+      padding-top: 50px;
+
+
+    }
+
+    .box .fas .fa-home {
+      color: #a7abde;
+      padding-left: 20px;
+    }
+    .box{
+        width:31%
+    }
+
+    .sidebar h1{
+      text-align: center;
+    }
+    .sidebar a{
+      font-weight: bold;
+    }
+
+
+
+
+  </style>
+
+</head>
+
+<body>
+  <input type="checkbox" id="check">
+  <!--header area start-->
+  <header>
+    <label for="check">
+      <i class="fas fa-bars" id="sidebar_btn"></i>
+    </label>
+    <div class="left_area">
+      <h3>Community<span>HUB</span></h3>
+    </div>
+    <div class="right_area">
+      <a href="{% url 'adminlogin' %}" class="logout_btn">Logout</a>
+    </div>
+  </header>
+  <!--header area end-->
+  <!--sidebar start-->
+  <div class="sidebar">
+    <center>
+      <img src="{%static '3D Apartment Night View.jpg' %}" class="profile_image" alt="">
+      
+    </center>
+    <h1>Admin</h1>
+    <a href="{%url 'admindashboard' %}"class="active"><i class="fas fa-desktop"></i><span>Dashboard</span></a>
+    <a href="{%url 'management' %}" class="active"><i class="fas fa-desktop"></i><span>Manage member</span></a>
+    <a href="{%url 'addnotice' %}"><i class="fas fa-bullhorn"></i><span>Notice Board</span></a>
+    <a href="{%url 'viewcomplaints' %}"><i class="fas fa-envelope-open-text"></i><span>View Complaint</span></a>
+    <a href="{%url 'viewpayment' %}"><i class="fas fa-file-invoice-dollar"></i><span>View Payment</span></a>
+    <a href="{%url 'photo' %}"><i class="fas fa-camera-retro"></i><span>Upload Photo</span></a>
+    <a href="{%url 'photogallery' %}"><i class="fas fa-camera-retro"></i><span>Photo gallery</span></a>
+    
+    <!-- <a href="#"><i class="fas fa-info-circle"></i><span>About</span></a>
+      <a href="#"><i class="fas fa-sliders-h"></i><span>Settings</span></a> -->
+  </div>
+  <!--sidebar end-->
+
+  <div class="content">
+    <h1 align="center">Welcome to Dashboard</h1>
+    <hr>
+    <br>
+    
+
+      <div class="col-div-3">
+        <div class="box">
+          <p>A. BHIDE<br><span>Society Secretary</span></p>
+          <i class="fas fa-user-tie fa-2x"></i>
+        </div>
+      </div>
+
+           
+    </div>
+</body>
+
+</html>

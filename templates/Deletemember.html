@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <div class="container">
+    <h1>Delete Member</h1>
+    <form action="Deletemember" method="POST" >
+        {%csrf_token%}
+        <input type="text" placeholder="Username" name="username" required>
+        <input type="email" placeholder="E-mail" name="email" required>
+        <input type="text" placeholder="Flat-No." name="flatno" required>
+        <input type="tel" placeholder="Mobile Number" name="mobno" required>
+        <input type="text" placeholder="Number of Family members" name="nofmem" required><br><br>
+
+        <a href="{%url 'management' %}"><button type="submit" class="Add_btn" >Delete data</button></a>
+    </form>
+    </div>
+</body>
+</html>

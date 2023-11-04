@@ -1,0 +1,340 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Hub</title>
+    <link rel="stylesheet" href="{%static 'style.css' %}">
+    <script src="https://kit.fontawesome.com/2edfbc5391.js"crossorigin="anonymous"></script>
+    <!-- <script type="text/javascript">
+        function validate() {
+        var pwd = document.getElementById('pwd').value;
+        var cpwd = document.getElementById('cpwd').value;
+        var name=document.getElementById('username').value;
+
+        if (pwd.length < 8) {
+          alert("Password must be at least 8 characters long");
+          return false;
+        }
+
+        if (pwd !== cpwd) {
+          alert("Passwords do not match");
+          return false;
+        }
+        if(name.length<4){
+            alert("Username is too short");
+            return false;
+        }
+      } -->
+
+
+
+
+
+
+    <!-- </script> -->
+</head>
+<body>
+   <div class="page">
+       <div class="navbar">
+        <img src="{%static 'mainlogo.jpg'%}" class="logo">
+           <h1 style="font-family: 'Merienda', cursive;
+           color:rgb(20, 76, 80);">Community<span style="font-family: 'Merienda', cursive;
+           color:rgb(20, 76, 80)">CLUB</span></h1>
+           <nav>
+               <ul>
+                   <li><a href=""class="active">Home</a></li>
+                   <li><a href="#rules">Rules & Regulations</a></li>
+                </ul>
+            </nav>
+            <a href="adminlogin" style="margin-left: 1200px;left: 130px"class="btn">Admin Login</a>
+       </div>
+       <div class="row">
+            <div class="col-1">
+                <img src="{%static '3D Apartment Night View.jpg'%}" >
+            </div>
+       
+            <div class="col-2">
+                <div class="form-container">
+                <div class="form-btn">
+                    <span onclick="login()">Login</span>
+                    <span onclick="register()">Register</span>
+                    <hr id="indicator">
+                    </div>
+                    <form action="login"   method="POST" id="Loginform" name="myform">
+                        {%csrf_token%}
+                        
+                            <input type="email" placeholder="E-mail" name="email" style="margin-bottom: 10px;" required>
+                        
+                            <input type="password" placeholder="Password" name="password" style="margin-bottom: 10px;" required>
+                            <div id="error">
+                              {% if error_message %}
+						                    <p style="color: rgb(17, 17, 17); font-size: 15px;font-weight: bold; padding: 0%; margin: 0%;">{{error_message}}</p>
+					                    {% endif %}   
+
+                            </div>
+                              
+                            <button type="submit" class="btn-losi">Login</button><br>
+                            <a style="font-size: 15px;" href ="{%url 'forgotpassword' %}">Forgot Password...???</a><br>
+                            <p style="font-size: 15px;">Don't have an account 
+                              <a href="#" onclick="register()">Register first</a>
+                            </p>
+                            <!-- <br><a href="#Regform">Don't have an account ? Register first</a> -->
+                            
+                        
+                        </form>
+
+                    <!-- <form method="POST" id="Regform"  name="myform"  onsubmit="return validateForm()">
+                    {%csrf_token%}
+                            <input type="text" placeholder="Username" id="username"  name="username" required>
+                            <input type="email" placeholder="E-mail" id="email" name="email" required>
+                            <input type="password" placeholder="Password" id="pwd" name="password" required>
+                            <input type="password" placeholder="Confirm passward" id="cpwd"   name="cpassword" required>
+                            <input type="text" placeholder="Mobile Number" id="mobno" name="mobno" pattern="[6-9]\d{9}" title="Please enter a 10-digit mobile number" required><br>
+                            
+                            <br> -->
+                        <!-- <a href="userprofile.html"> -->
+                            <!-- <button  class="btn-losi">Register Now</button> -->
+                        <!-- </a> -->
+                    <!-- </form> -->
+                    <form method="POST" id="Regform" name="myForm" onsubmit="return validateForm()">
+                      {% csrf_token %}
+                      <div class="input-box" id="name">
+                          <input type="text" name="username" placeholder="Username" id="username" /><span
+                              class="formerror"></span>
+                      </div>
+
+                      <div class="input-box">
+                          <input type="email" placeholder="E-mail" id="email" name="email" required /><span
+                              class="formerror"></span>
+                      </div>
+
+                      <div class="input-box" id="pwd">
+                          <input type="password" placeholder="Password" id="password" name="password" /><span
+                              class="formerror"></span>
+                      </div>
+
+                      <div class="input-box" id="cpwd">
+                          <input type="password" placeholder="Confirm password" name="cpassword" /><span
+                              class="formerror"></span>
+                      </div>
+
+                      <div class="input-box" id="phn">
+                          <input type="text" placeholder="Mobile Number" id="mobno" name="mobno" /><span
+                              class="formerror"></span>
+                      </div>
+                    
+
+                        <br><a class="blogin" href="#" onclick="login()">Have an account already Please login </a>
+
+                        <button class="btn-losi" onclick="checkForm()">Register Now</button>
+                    </form>
+
+                
+
+              </div>
+             
+            </div>
+        </div>
+    </div>
+   </div>
+   <hr>
+   <div id="rules">
+       <h1>Rules and Regulations</h1>
+       <hr>
+       
+            <li>Members and residents are required to keep their flats/homes and nearby premises clean and habitable.</li>  
+            <li>The residents should also maintain proper cleanliness etiquette while using common areas, parking lot, etc. and not throw litter from their balconies and windows.</li>
+            <li>Members must regularly pay the maintenance charges and all other dues necessitated by the society.</li>
+            <li>Keeping pets is allowed after submitting the required NOC to the society. But if pets like dogs are creating any kind of disturbance to other society members then the pets wont be allowed.</li>
+            <li>Every member of the society should park their vehicles in their respective allotted parking spaces only.</li> 
+            <li>After using the community hall for any event or function it should be cleaned and no damages should be caused.</li> 
+            <li>No member can occupy the area near their front doors, corridors, passage for their personal usage.</li> 
+            <li>Salesmen, vendors or any other sellers are not allowed to enter the premises.</li>
+            <li>Wastage and over usage of water is not allowed.</li>
+            <li>Smoking in lobbies, passage is not allowed. If any irresponsible person is found smoking in the no smoking zone, he/she shall be charged with penalty.</li>   
+            <li>Be considerate of your neighbours-if you have a party or have visitors over,try to keep the noise down and be respectful of your
+                neighbour's space</li>
+    </div>
+    <!-- footer code -->
+    <hr>
+    <footer>
+        <div class="main-content">
+            <div class="left box">
+                <h2>About Us</h2>
+                <div class="content">
+                    <p>
+                        CommunityHUB is a webapp where society members can get all the updates related to their society. 
+                        The members also get notified with notices and events held in society and can see information about members in society. 
+                        Members can also post complaints regarding any issue in society. 
+                    </p>
+                </div>
+            </div>
+            <div class="center box adjust">
+                <div class="cen">
+                    <h2>Quick Links</h2>
+                    <ul>
+                        <li><a href="{%url 'index' %}">Home</a></li>
+                        <li><a href="#" onclick="login()">Login</a></li>
+                        <li><a href="#rules">Rules and Regulations</a></li>
+                    </ul>
+                </div>
+                
+            </div>
+            <div class="right box">
+                <h2>Address</h2>
+                <div class="content">
+                    <div class="place">
+                        <span class="fas fa-map-marker-alt"></span>
+                        <span class="text">Doctor's street,Osmanpura,Karimnagar(D)</span>
+                    </div>
+                    <div class="phone">
+                        <span class="fas fa-phone-alt"></span>
+                        <span class="text">+91 8779635278</span>
+                    </div>
+                    <div class="email">
+                        <span class="fas fa-envelope"></span>
+                        <span class="text">CommunityHUB@gmail.com</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <h3>Copyright @2023|Designed with HTML,CSS.</h3>
+        </div>
+    </footer>
+   
+    {% if error_message == "*User not found" %}
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+        const box1 = document.getElementById('email');
+		box1.style.border="1px solid red"
+        box1.style.backgroundColor = "#FFEBEE";
+        });
+    </script>
+    {% elif error_message == "*Incorrect password"%}
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+        const box2 = document.getElementById('password');
+        box2.style.border="1px solid red"
+        box2.style.backgroundColor = "#FFEBEE";
+        });
+    </script>
+    {% endif %}
+
+
+
+
+
+
+
+</body>
+<script>
+    var Loginform=document.getElementById("Loginform")
+    var Regform=document.getElementById("Regform")
+    var indicator=document.getElementById("indicator")
+
+      function register(){
+         Regform.style.transform= "translateX(0px)";
+         Loginform.style.transform= "translateX(0px)";
+         indicator.style.transform= "translateX(80px)";
+
+      }
+
+      function login(){
+         Regform.style.transform= "translateX(300px)";
+         Loginform.style.transform= "translateX(300px)";
+         indicator.style.transform= "translateX(0px)";
+
+      }
+      login();
+
+
+      function clearerror(){
+         var error=document.getElementsByClassName("formerror");
+        for(let item of error){
+             item.innerHTML='';
+         }
+      }
+      function seterror(id,errorMsg){
+        var element=document.getElementById(id);
+        element.querySelector('.formerror').innerHTML = errorMsg;
+      }
+      function validateForm() {
+      var returnval = true;
+      clearerror();
+
+      // Name validation
+      var name = document.forms['myForm']['username'].value;
+      if (name.length < 5) {
+        seterror('name', "* Username is too short");
+        returnval = false;
+      }
+
+      // Phone number validation
+      var phone = document.forms['myForm']['mobno'].value;
+      if (phone.length !== 10) {
+        seterror('phn', "* Phone Number must be 10 digits");
+        returnval = false;
+      }
+
+      // Password validation
+      var password = document.forms['myForm']['password'].value;
+      if (password.length < 8) {
+        seterror('pwd', "* Minimum 8 characters");
+        returnval = false;
+      }
+
+      // Confirm password validation
+      var cpassword = document.forms['myForm']['cpassword'].value;
+      if (cpassword !== password) {
+        seterror('cpwd', "* Passwords must match");
+        returnval = false;
+      }
+       // Validation for other fields here
+
+       return returnval;
+    }
+  function checkForm(){
+    if(validateForm()){
+      alert("Registration successfull! Please Login")
+    }
+  }
+  function hideMessage(){
+    const errorMessage=document.getElementById("error")
+    if(errorMessage){
+      errorMessage.style.display="none";
+    }
+  }
+  setTimeout(hideMessage, 5000);
+
+  document.getElementById("email").addEventListener("submit", function (event) {
+        var emailInput = document.getElementById("email");
+        var emailError = document.getElementById("formerror");
+        var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+
+        if (!emailPattern.test(emailInput.value)) {
+            // Email format is incorrect
+            event.preventDefault(); // Prevent form submission
+            formerror.textContent = "Please enter a valid email address.";
+            emailInput.focus(); // Set focus to the email input
+        } else {
+            // Email format is correct
+            formrrror.textContent = ""; // Clear any previous error message
+        }
+    });
+
+
+
+
+
+
+
+
+
+
+      
+</script>
+</html>

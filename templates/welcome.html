@@ -1,0 +1,135 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome dashboard</title>
+  <link rel="stylesheet" href="{%static 'style1.css' %}">
+  <script src="https://kit.fontawesome.com/2edfbc5391.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+  <style>
+    .far {
+      color: #a7abde;
+      padding-left: 15px;
+
+    }
+
+    .col-div-3 .box p {
+      font-size: 25px;
+
+    }
+
+    .box .fas {
+      color: #a7abde;
+      position: absolute;
+      padding-top: 50px;
+
+
+    }
+
+    .box .fas .fa-home {
+      color: #a7abde;
+      padding-left: 20px;
+    }
+
+    .sidebar a{
+      font-weight: bold;
+    }
+
+
+
+  </style>
+
+</head>
+
+<body>
+  <input type="checkbox" id="check">
+  <!--header area start-->
+  <header>
+    <label for="check">
+      <i class="fas fa-bars" id="sidebar_btn"></i>
+    </label>
+    <div class="left_area">
+      <h3>Community<span>CLUB</span></h3>
+    </div>
+    <div class="right_area">
+      <a href="{%url 'index' %}" class="logout_btn">Logout</a>
+      <div class="bottom_area">
+        <a href="{%url 'editprofile' %}" class="Edit_profile_btn">Edit Profile</a>
+    </div>
+    </div>
+  </header>
+  <!--header area end-->
+  <!--sidebar start-->
+  <div class="sidebar">
+    <center>
+      <img src="{%static 'logo1.svg' %}" class="profile_image" alt="">
+      <h4>
+       
+      </h4>
+    </center>
+    <a href="{%url 'welcome' %}" class="active"><i class="fas fa-desktop"></i><span>Dashboard</span></a>
+    <a href="{%url 'noticeboard' %}"><i class="fas fa-bullhorn"></i><span>Notice Board</span></a>
+    <a href="{%url 'complaint' %}"><i class="fas fa-envelope-open-text"></i><span>Register Complaint</span></a>
+    <a href="{%url 'payment' %}"><i class="fas fa-file-invoice-dollar"></i><span>Maintenance Payment</span></a>
+    <a href="{%url 'userphoto' %}"><i class="fas fa-camera-retro"></i><span>Upload photo</span></a>
+    <a href="{%url 'userphotogallery' %}"><i class="fas fa-camera-retro"></i><span>Photo gallery</span></a>
+    <!-- <a href="#"><i class="fas fa-info-circle"></i><span>About</span></a>
+      <a href="#"><i class="fas ' fa-sliders-h"></i><span>Settings</span></a> -->
+  </div>
+  <!--sidebar end-->
+
+  <div class="content">
+    <h1 align="center">Welcome to Dashboard</h1>
+    <hr>
+    <br>
+    <div class="block">
+      <div class="col-div-3">
+        <div class="box">
+          <p><br><span>{{user.name}}</span></p>
+          <i class="far fa-user fa-2x"></i>
+        </div>
+      </div>
+
+      <div class="col-div-3">
+        <div class="box">
+          <p><br><span>{{user.flatno}}</span></p>
+          <i class="fas fa-home fa-2x"></i>
+        </div>
+      </div>
+
+      <div class="col-div-3">
+        <div class="box">
+          <p>A. Bhide<br><span>Society Secretary</span></p>
+          <i class="fas fa-user-tie fa-2x"></i>
+        </div>
+      </div>
+
+      <div class="col-div-3">
+        <div class="box">
+          <p><br><span>{{user.vehno}}</span></p>
+          <i class="fas fa-car fa-2x"></i>
+        </div>
+      </div>
+
+      <div class="col-div-3">
+        <div class="box">
+          <p><br><span>{{user.prno}}</span></p>
+          <i class='bx bx-rupee' id="rupee"></i>
+        </div>
+      </div>
+
+      <div class="col-div-3">
+        <div class="box">
+          <p><br><span>{{user.nofmem}}</span></p>
+          <i class="fas fa-home fa-2x"></i>
+        </div>
+      </div>
+      
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Update Member</h1>
+        <form method="POST" >
+        {%csrf_token%}
+            <input type="text" placeholder="Username" name="username" value="{{members.name}}">
+            <input type="email" placeholder="E-mail" name="email" value="{{members.email}}"required>
+            <input type="text" placeholder="Flat-No." name="flatno" value="{{members.flatno}}"   required>
+            <input type="tel" placeholder="Mobile Number" name="mobno"  value="{{members.mobile}}" required>
+            <input type="text" placeholder="Number of Family members" name="nofmem"  value="{{members.nofmem}}"   required>
+            <a href="{%url 'management' %}"><button type="submit" class="Add_btn" >Save data</button></a>
+            
+
+        </form>
+    </div>
+</body>
+</html>

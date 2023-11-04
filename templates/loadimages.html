@@ -1,0 +1,23 @@
+{% load static %}
+<html>
+<head>
+<title></title>
+<link href={% static 'external.css' %} rel='StyleSheet'/>
+
+</head>
+<body>
+    <form method="post" enctype="multipart/form-data">
+<table>
+  {%for image in images%}
+<tr>
+  <td>
+    
+    {{image.imagename}}
+    <img src="{{MEDIA_URL}}{{  image.imagename }}" height="200" width="200"/>
+  </td>
+</tr>
+{%endfor%}
+</table>
+      </form>
+</body>
+</html>

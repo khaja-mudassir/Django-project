@@ -1,0 +1,379 @@
+*{
+    margin: 0;
+    padding: 0;
+    /* box-sizing: border-box; */
+  }
+  /* body{
+    background: url('{%static "3D\ Apartment\ Night\ View.jpg" %}') no-repeat center;
+    background-size: cover; 
+  
+  } */
+  
+  
+  
+  
+  
+  
+  .page{
+    height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(rgb(211, 203, 241),rgb(232, 144, 199));
+    background-position: center;
+    background-size:cover;
+    padding-left: 5%;
+    padding-right: 5%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    position:relative;
+  }
+  
+  .navbar{
+  width: 150%;
+  height: 15vh;
+  margin: 0px;
+  display:flex;
+  align-items: center;
+  background-image: linear-gradient(rgb(211, 203, 241),rgb(229, 163, 205));
+  position: relative;
+  right: 70px;
+  
+  /* justify-content: space-between;*/ 
+  }
+  .logo{
+    height: 80px;
+    width: 80px;
+    cursor: pointer;
+   
+    /* padding-top: 20px; */
+    /* padding-right: 45px; */
+    border-radius: 60px;
+    
+  }
+  nav{
+    flex:1;
+    padding-left: 100px;
+    /* display: flex;
+    justify-content: space-between; */
+  }
+  nav ul li{
+    display: inline-block;
+    list-style: none;
+    margin: 0px 15px;
+    /* padding-left: 150px; */
+    position: relative;
+  }
+  nav ul {
+    padding-left: 150px;
+    font-size: 20px;
+  }
+  nav ul li::after{
+    content:"";
+    height: 3px;
+    width: 0%; 
+    background:rgb(0, 0, 0);
+    position: absolute;
+    left: -32px;
+    bottom: -4px;
+    transition: 0.5s;
+  }
+  nav ul li:last-child:hover::after{
+    width: 100%;
+  }
+  nav ul li a{
+    text-decoration: none;
+    font-size: 30px;
+    color: rgb(0, 0, 0);
+    position: relative;
+    right: 35px;
+    font-weight: bold;
+   
+  }
+  .navbar h1{
+     padding-top: 10px;
+     margin-left: 8px;
+     font-size: 50px;
+     font-family: Merienda, cursive;
+     color: rgb(3, 38, 114);
+     cursor: pointer;
+    
+  }
+  span{
+    text-align: center;
+    font-family: 'Merienda', cursive;
+  
+    color: black;
+   background-image: linear-gradient(rgb(118, 39, 83) white);
+  }
+  .form-btn{
+    position: absolute;
+    left:16%;
+    /* justify-content: space-between;*/
+  }
+  .form-container{
+    position: relative;
+  }
+  .row{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 5%;
+    justify-content: space-around;
+    font-size: 25px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    /* background: url('{%static "3D\ Apartment\ Night\ View.jpg" %}') no-repeat center;
+    background-size: cover; */
+  }
+  .col-1{
+    
+    flex-basis: 40%;
+    min-width:200px;
+    margin-bottom: 40px;
+  }
+  .col-1 img{
+    width: 115%;
+    height: 106%;
+    /* padding-right: 20px; */
+    /* padding-left: 30px; */
+    border-radius: 20px;
+    cursor: pointer;
+  }
+  .active::after{
+    content: "";
+    height: 3px;
+    width: 100%;
+    background:rgb(0, 0, 0);
+    position: absolute;
+    left: 0px;
+    bottom: -5px;
+    text-decoration:underline rgb(5, 85, 85);
+  }
+  .btn{
+    /* display: flex; */
+    /* justify-content: right; */
+    margin-left: 1200px;
+    /* margin-right: 130px; */
+    margin-top: 0px;
+    /* background: #fff; */
+    color:rgb(0, 0, 0) ;
+    border: 3px solid rgb(0, 0, 0);
+    padding: 6px 25px;
+    border-radius: 60px;
+    text-decoration: none;
+    position:absolute;
+    transition: 0.5s;
+    left:150px;
+    transition: transform 0.2s ease-in-out;
+  
+  
+  }
+  .btn:hover{
+    background: #fff;
+    transform: scale(1.1);
+  }
+  .form-container{
+    right: 10px;
+    background: transparent;
+    width: 300px;
+    height: 470px;
+    position: relative;
+    text-align: center;
+    padding: 10px 0;
+    margin: auto;
+    box-shadow: 20px 10px 10px 0px rgba(0,0,0,0.1);
+    overflow: hidden;
+    border: 2px solid black;
+    border-radius: 20px;
+    bottom: 10px;
+  }
+  .col-2{
+    padding-right: 0px;
+    padding-top: 10px;
+  }
+  .form-container span{
+    font-weight: bold;
+    padding: 0 10px;
+    color: #000000;
+    cursor: pointer;
+    width: 50px;
+    display: inline-block;
+  
+  }
+  .form-btn{
+    display: inline-block;
+    padding-top: 21px;
+  }
+  .form-container form{
+    max-width: 300px;
+    /* padding: 0 20px; */
+    position: absolute;
+    top: 130px;
+    transition: transform 1s;
+  }
+  form input{
+    width: 80%;
+    height: 30px;
+    margin-top: 0px;
+    margin-bottom: -8px;
+    padding: 0 10px;
+    border: 1px solid #ccc;
+  }
+  form input:focus{
+    border: 1px solid blueviolet;
+  }
+  #Loginform{
+    left:-300px;
+    top: 110px;
+  }
+  #Regform{
+    left: 0;
+    top: 90px;
+    width: 100%;
+  }
+  form a{
+    font-size: 18px;
+    display: block;
+    
+  }
+  #indicator{
+    width: 100px;
+    border: none;
+    background: rgb(134, 43, 142);
+    height: 3px;
+    margin-top: 8px;
+    transform: translateX(80px);
+    transition: transform 0.2s;
+  }
+  .btn-losi{
+     width: 75%;
+     font-weight: bold;
+     padding: 10px 10px;
+     cursor: pointer;
+     display: block;
+     margin: 14px 40px 0px;
+     /* background:linear-gradient(to right,#a7cceb,#b73f8b); */
+     background-color: rgb(66, 21, 70);
+     border: 0;
+     outline: none;
+     border-radius: 30px;
+     color: #fff;
+     transition: transform 0.2s ease-in-out;
+  }
+  .btn-losi:hover{
+    transform: scale(1.1);
+    background: rgb(134, 43, 142);
+  }
+  #rules {
+    height:70vh;
+    width: 100%;
+    background-size:cover;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    position:relative;
+    background-color: rgba(219, 131, 187, 0.694);
+    
+  }
+  #rules h1{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 523px;
+    color: rgb(251, 251, 251);
+    background-color: rgb(66, 21, 70);
+  }
+  #rules li{
+    list-style:number;
+    list-style-position:outside;
+    text-indent: -1em;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
+    padding-top: 15px;
+    padding-left: 28px;
+    font-size: 18px;
+  }
+ 
+  footer{
+    position:relative;
+    width: 100%;
+    background: rgb(66, 21, 70);
+    /* font-family: 'poppins',sans-serif; */
+    font-family: 'Merienda', cursive;;
+    color: #d9d9d9;
+    box-sizing: border-box;
+  
+  }
+  .main-content{
+    display: flex;
+  }
+  .main-content .box{
+    flex-basis: 50%;
+    padding: 10px 20px;
+  }
+  .box h2{
+    font-size: 1.125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding-top: 15px;
+    /* padding-left: 143px; */
+  }
+  .box h2:hover{
+   color:yellow;
+  
+  }
+  .box .content{
+    margin: 20px 0 0 0;
+    
+  }
+  .left .content p{
+    text-align: justify;
+    font-family: 'Merienda', cursive;
+  }
+  .content p{
+    line-height: 20px;
+  }
+  .place{
+    padding-bottom: 10px;
+  }
+  .text{
+    color: #fff;
+  }
+  .phone{
+    padding-bottom: 10px;
+  }
+  .link{
+    width: 20%;
+  }
+  ul li{
+    list-style-type: none;
+    padding-top: 20px;
+  }
+  ul li a{
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Merienda', cursive; 
+    font-weight: 400;
+  }
+  .adjust ul li a:hover{
+    color: yellow;
+  }
+  .cen{
+    padding-left: 100px;
+  }
+  .copyright h3{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-color:#ffffff;
+    text-align: center;
+    font-size: 15px;
+    height: 23px;
+    color: black;
+  }
+  .fas{
+    color:white;
+  }
+  
+  .form-container .formerror{
+    font-size: 13px;
+    color:  #2b2c81;
+    width: 100%;
+    position: relative;
+    left:-4%;
+    bottom: 0px;
+  
+  }

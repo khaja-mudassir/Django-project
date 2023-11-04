@@ -1,0 +1,198 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Member</title>
+    <link rel="stylesheet" href="{%static 'style1.css' %}">
+    <script src="https://kit.fontawesome.com/2edfbc5391.js"crossorigin="anonymous"></script>
+    <style>
+    .content-table {
+  border-collapse: collapse;
+  margin-bottom: 50px;
+  margin-left: 70px;
+  font-size: 0.9em;
+  min-width: 400px;
+  border-radius: 5px 5px 0 0;
+
+  /* overflow: hidden; */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.content-table thead tr {
+  background-color: #c13737;
+  color: #ffffff;
+  text-align: left;
+  font-weight: 900;
+}
+
+.content-table th,
+.content-table td {
+  padding: 15px 15px;
+  text-align: center;
+}
+
+.content-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.content-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.content-table tbody tr:last-of-type {
+  border-bottom: 2px solid #c7a782;
+}
+
+.content1{
+    margin-left: 200px;
+    bottom: 20px;
+    overflow: auto;
+    /* background: url(Images/background.png) no-repeat; */
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    transition: 0.5s;
+  }
+
+
+
+
+
+.Table_btn{
+    padding: 5px;
+    background: #0B87A6;
+    text-decoration: none;
+    float: right;
+    margin-top: -3px;
+    margin-right: 40px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #fff;
+    transition: 0.5s;
+    transition-property: background;
+  }
+  
+  .Table_btn:hover{
+    background: #19B3D3;
+  }
+  .Table_btn1{
+    padding: 8px;
+    background: #0B87A6;
+    text-decoration: none;
+    float: left;
+    margin-top: -1px;
+    margin-left: 50px;
+    margin-right: 40px;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #fff;
+    transition: 0.5s;
+    transition-property: background;
+  }
+  
+  .Table_btn1:hover{
+    background: #19B3D3;
+  }
+
+  .sidebar a{
+    font-weight: bold;
+  }
+
+
+
+  </style>
+</head>
+<body>
+<input type="checkbox" id="check">
+    <!--header area start-->
+    <header>
+      <label for="check">
+        <i class="fas fa-bars" id="sidebar_btn"></i>
+      </label>
+      <div class="left_area">
+        <h3>Community<span>HUB</span></h3>
+      </div>
+      <div class="right_area">
+        <a href="{%url 'adminlogin' %}" class="logout_btn">Logout</a>
+      </div>
+    </header>
+    <!--header area end-->
+    <!--sidebar start-->
+    <div class="sidebar">
+      <center>
+        <img src="{%static '3D Apartment Night View.jpg' %}" class="profile_image" alt="">
+        <h4> Admin </h4>
+      </center>
+      <a href="{%url 'admindashboard' %}"class="active"><i class="fas fa-desktop"></i><span>Dashboard</span></a>
+      <a href="{%url 'management' %}"class="active"><i class="fas fa-desktop"></i><span>Manage Members</span></a>
+      <a href="{%url 'addnotice' %}"><i class="fas fa-bullhorn"></i><span>Add Notice</span></a>
+      <a href="{%url 'viewcomplaints' %}" ><i class="fas fa-envelope-open-text"></i><span>View Complaints</span></a>
+      <a href="{%url 'viewpayment' %}" ><i class="fas fa-file-invoice-dollar"></i><span>View Payments</span></a>
+      <a href="{%url 'photo' %}"><i class="fas fa-camera-retro"></i><span>Upload Photo</span></a>
+      <a href="{%url 'photogallery' %}"><i class="fas fa-camera-retro"></i><span>Photo gallery</span></a>
+      <!-- <a href="#"><i class="fas fa-info-circle"></i><span>About</span></a>
+      <a href="#"><i class="fas fa-sliders-h"></i><span>Settings</span></a> -->
+    </div>
+    <!--sidebar end--> 
+    <div class="content1"><br><br><br><br><br><br>
+    <a href="{%url 'Addmember' %}" class="Table_btn1">Add Member</a><br><br>
+
+  <div class="content1"><br><br><br><br>
+    <table class="content-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Flat no</th>
+          <th>Email</th>
+          <th>Mobile no</th>
+          <th style="text-align: center;">No of family members</th>
+          <th style="text-align: center;">Update</th>
+          <th style="text-align: center;">Delete</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        {% if management_data %}
+            {% for row in management_data %}
+                <tr>
+                    <td>{{ row.0 }}</td>
+                    <td>{{ row.1 }}</td>
+                    <td>{{ row.2 }}</td>
+                    <td>{{ row.3 }}</td>
+                    <td>{{ row.4 }}</td>
+                    <td>{{ row.5 }}</td>
+                    <td><a href="{%url 'Updatemember' row.0 %}" class="Table_btn1" name="Update">
+                      Update</a>
+                    
+                      </td>
+                      <td><a href="{%url 'Deletemember' row.0 %}" class="Table_btn1"  name="Delete">
+                        Delete</a>
+                      
+                        </td>
+                  
+                </tr>
+              
+            {% endfor %}
+        {% else %}
+            <tr>
+                <td colspan="6">No Records found</td>
+            </tr>
+        {% endif %}
+        </tbody>
+        </table> 
+  
+  
+    
+  
+          
+      </div>
+        
+  </div>
+</body>
+</html>
